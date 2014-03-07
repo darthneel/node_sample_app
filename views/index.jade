@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  h1 Todo App
+
+  form(action='/create', method="post")
+    .form-group
+    input(type='text', name='content' class='form-control')
+    input(type='submit' class='btn btn-primary')
+
+  table.table.table-bordered.table-hover
+        thead
+          tr
+            td Description
+            td Date
+            td ID
+            td
+            td
+        tbody
+          - each todo in todos
+            tr
+              td= todo.content
+              td= todo.updated_at
+              td= todo._id
+              td
+                a(href="/edit/" + todo.id) Edit
+              td 
+                a(href="/destroy/" + todo.id) Delete

@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  .container
+    h1= title 
+
+    h3= todo.content
+
+    form(action='/update/' + todo._id, method='post', accept-charset='utf-8')
+     .form-group
+       input(type='text', name='content' class="form-control")
+       input(type='submit' class='btn btn-primary')
+
+    a(href="/") Back
